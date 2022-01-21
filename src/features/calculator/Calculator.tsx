@@ -9,8 +9,6 @@ export function Calculator() {
         const target = event.target as typeof event.target & {
             screenField: {value: string}
         };
-        console.log(target, 'target');
-
         const {value} = target.screenField;
 
         setScreenField(screenField.concat(` ${value}`));
