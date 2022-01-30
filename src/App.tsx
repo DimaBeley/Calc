@@ -1,5 +1,5 @@
 import { Counter } from './features/counter/Counter';
-import { Calculator } from './features/calculator/Calculator';
+import { TodoList } from './features/calculator/TodoList';
 import './App.css';
 
 
@@ -10,7 +10,7 @@ function App() {
         <Counter />
       </header>
       <main>
-        <Calculator />
+        <TodoList />
       </main>
     </div>
   );
