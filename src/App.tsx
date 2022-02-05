@@ -1,5 +1,5 @@
 import { Counter } from './features/counter/Counter';
-import { TodoList } from './features/calculator/TodoList';
+import { TodoList } from './features/todoList/TodoList';
 import './App.css';
 
 
