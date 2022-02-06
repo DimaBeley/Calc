@@ -6,14 +6,19 @@ export function TodoList() {
     type listItem = {
         text: string,
         id: number
+        active: boolean
     }
     const [todos, setTodos] = useState<listItem[]>([]);
 
     const todoListItems = todos.map((todo, i) => (
-        <li key={todo.id} className={Styles.todoListItem}><span>{i + 1} - {todo.text}</span> 
+        <li key={todo.id} className={Styles.todoListItem} onClick={() => setActiveTodo(todo.id)}><span>{i + 1} - {todo.text}</span> 
             <button type='button' className={Styles.removeListItemButton} onClick={() => removeListItem(todo.id)}>x</button>
         </li>
     ))
+
+    const setActiveTodo = (id:number):void => {
+        // setTodos([...todos, {...todos[id], active: !todos[id].active}]);
+    }
  
     const removeListItem = (id:number):void => {
         setTodos(todos.filter(todo => todo.id !== id));
@@ -32,7 +37,7 @@ export function TodoList() {
         }
 
         if (value) {
-            setTodos([...todos, {text: value, id: getId()}]);
+            setTodos([...todos, {text: value, id: getId(), active: false},]);
             target.screenField.value = '';
         } 
         return;
