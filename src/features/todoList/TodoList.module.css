@@ -1,15 +1,49 @@
 .todoList {
-    border: 2px solid pink;
-    border-radius: 8px;
     width: 500px;
-    height: 100%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
 }
 
+.todoList > ul {
+    border: 1px solid #24d6a7;
+    border-radius: 9px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todoListItem:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.todoListItem:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.todoListItem {
+    transition: all ease .4s;
+    width: 100%;
+    height: 24px;
+    padding: 10px 0;
+    display: block;
+}
+
+.todoListItem:hover {
+    background-color: rgba(109, 221, 193, 0.15);
+}
+
+.todoListItem > span {
+    margin-left: 20px;
+}
 .removeListItemButton {
     float: right;
     margin-right: 15px;
+}
+
+.removeListItemButton:hover {
+    cursor: pointer;
 }
 
 .listForm {
@@ -24,12 +58,22 @@
     height: 100%;
     margin-left: 15px;
     border-radius: 8px;
-    border: 1px  solid rgb(239, 239, 239)
+    border: none;
+    outline: 1px solid #24d6a7;
+    padding: 0;
 }
 .submitBtn {
+    transition: all ease .4s;
     width: 46px;
-    height: 46px;
+    height: 100%;
     margin-left: 5px;
     border-radius: 8px;
-    border: 1px  solid transparent
+    border: none;
+    padding: 0;
+    outline: 1px solid transparent;
+}
+
+.submitBtn:hover {
+    cursor: pointer;
+    outline: 1px solid #24d6a7;
 }

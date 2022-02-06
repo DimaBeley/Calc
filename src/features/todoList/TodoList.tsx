@@ -8,8 +8,9 @@ export function TodoList() {
         id: number
     }
     const [todos, setTodos] = useState<listItem[]>([]);
-    const todoList = todos.map((todo, i) => (
-        <li key={todo.id}> {i + 1} - {todo.text} 
+
+    const todoListItems = todos.map((todo, i) => (
+        <li key={todo.id} className={Styles.todoListItem}><span>{i + 1} - {todo.text}</span> 
             <button type='button' className={Styles.removeListItemButton} onClick={() => removeListItem(todo.id)}>x</button>
         </li>
     ))
@@ -45,9 +46,7 @@ export function TodoList() {
                 <input type="submit" className={Styles.submitBtn} value="↵"/>
             </form>
             <div className={Styles.todoList}>
-                <ul>
-                    {todoList}
-                </ul>
+                {todos.length ? <ul>{todoListItems}</ul> : null}
             </div>
         </div>
     )
