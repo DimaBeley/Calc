@@ -30,6 +30,10 @@
     display: block;
 }
 
+.activeTodo {
+    background-color: rgba(223, 110, 133, 0.3);
+}
+
 .todoListItem:hover {
     background-color: rgba(109, 221, 193, 0.15);
 }

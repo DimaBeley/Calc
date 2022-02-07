@@ -10,14 +10,25 @@ export function TodoList() {
     }
     const [todos, setTodos] = useState<listItem[]>([]);
 
-    const todoListItems = todos.map((todo, i) => (
-        <li key={todo.id} className={Styles.todoListItem} onClick={() => setActiveTodo(todo.id)}><span>{i + 1} - {todo.text}</span> 
+    
+    const todoListItems = todos.map((todo, i) => {
+        const classNames = {
+            
+        }
+     return (
+        <li key={todo.id} className={`${Styles.todoListItem} ${todo.active ? Styles.activeTodo : null}`} onClick={() => setActiveTodo(todo.id)}><span>{i + 1} - {todo.text}</span> 
             <button type='button' className={Styles.removeListItemButton} onClick={() => removeListItem(todo.id)}>x</button>
         </li>
-    ))
+    )   
+    })
 
     const setActiveTodo = (id:number):void => {
-        // setTodos([...todos, {...todos[id], active: !todos[id].active}]);
+        const updatedTodos = todos.map((todo) => {
+            if (todo.id === id) todo.active = !todo.active
+            return todo
+        })
+        setTodos(updatedTodos);
+        return;
     }
  
     const removeListItem = (id:number):void => {
