@@ -17,7 +17,7 @@ export function TodoList() {
         }
      return (
         <li key={todo.id} className={`${Styles.todoListItem} ${todo.active ? Styles.activeTodo : null}`} onClick={() => setActiveTodo(todo.id)}><span>{i + 1} - {todo.text}</span> 
-            <button type='button' className={Styles.removeListItemButton} onClick={() => removeListItem(todo.id)}>x</button>
+            <button type='button' className={Styles.removeListItemButton} onClick={(event) => removeListItem(event, todo.id)}>x</button>
         </li>
     )   
     })
@@ -31,7 +31,8 @@ export function TodoList() {
         return;
     }
  
-    const removeListItem = (id:number):void => {
+    const removeListItem = (event:React.SyntheticEvent, id:number):void => {
+        event.stopPropagation();
         setTodos(todos.filter(todo => todo.id !== id));
         return;
     }
